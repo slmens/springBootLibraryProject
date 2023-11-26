@@ -15,13 +15,13 @@ public class PublisherManager implements IPublisherService {
     }
 
     @Override
-    public Publisher getById(int id) {
-        return null;
+    public Publisher findById(long id) {
+        return this.publisherRepository.findById(id).orElseThrow();
     }
 
     @Override
     public Publisher save(Publisher publisher) {
-        return null;
+        return this.publisherRepository.save(publisher);
     }
 
     @Override

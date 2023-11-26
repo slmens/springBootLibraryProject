@@ -16,9 +16,22 @@ public class CategoryController {
     }
 
     @GetMapping("/{id}")
-    public Category getById(@PathVariable("id") int id){
-        return this.categoryManager.getById(id);
+    public Category findById(@PathVariable("id") long id){
+        return this.categoryManager.findById(id);
     }
 
+    @PostMapping("/save")
+    public Category save(@RequestBody Category category){
+        return this.categoryManager.save(category);
+    }
 
+    @DeleteMapping("/{id}")
+    public boolean delete(@PathVariable("id") long id){
+        Category category = findById(id);
+        if (category.getBookList().isEmpty()){
+            this.categoryManager.delete(category);
+            return true;
+        }
+        return false;
+    }
 }

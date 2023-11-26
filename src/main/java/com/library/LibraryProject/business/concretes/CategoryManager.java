@@ -15,7 +15,7 @@ public class CategoryManager implements ICategoryService {
     }
 
     @Override
-    public Category getById(int id) {
+    public Category findById(long id) {
         return this.categoryRepository.findById(id).orElseThrow();
     }
 

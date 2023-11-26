@@ -15,13 +15,13 @@ public class AuthorManager implements IAuthorService {
     }
 
     @Override
-    public Author getById(int id) {
-        return null;
+    public Author findById(long id) {
+        return this.authorRepository.findById(id).orElseThrow();
     }
 
     @Override
     public Author save(Author author) {
-        return null;
+        return this.authorRepository.save(author);
     }
 
     @Override
